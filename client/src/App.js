@@ -5,7 +5,8 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
-import Admin from "./components/Admin";
+import AdminDash from "./components/AdminDash";
+import AdminLogin from "./components/AdminLogin";
 
 function App() {
   const checkAuthenticated = async () => {
@@ -35,11 +36,11 @@ function App() {
   };
 
   //admin
-  const [isAdmin, setIsAdmin] = useState(false);
+  // const [isAdmin, setIsAdmin] = useState(false);
 
-  const setAdmin = boolean =>{
-    setIsAdmin(boolean);
-  }
+  // const setAdmin = boolean =>{
+  //   setIsAdmin(boolean);
+  // }
 
   return (
     <Fragment>
@@ -59,9 +60,12 @@ function App() {
               element={isAuthenticated ? <Dashboard setAuth={setAuth} /> : <Navigate to="/login" />}
             />
             <Route
-              path="/admin"
-              // element = {<Admin/>}
-              element={isAdmin ? <Admin setAdmin={setAdmin} /> : <Navigate to="/admin" />}
+              path="/adminlogin"
+              element={!isAuthenticated ? <AdminLogin setAuth={setAuth} /> : <Navigate to="/admindash" />}
+            />
+            <Route
+              path="/admindash"
+              element={isAuthenticated ? <AdminDash setAuth={setAuth} /> : <Navigate to="/adminlogin" />}
             />
           </Routes>
         </div>

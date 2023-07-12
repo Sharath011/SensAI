@@ -2,14 +2,14 @@ import React, { Fragment, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const Register = ({ setAuth }) => {
+const AdminLogin = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
+    name: "admin",
     email: "",
-    password: "",
-    name: ""
+    password: ""
   });
 
-  const { email, password, name } = inputs;
+  const { email, password } = inputs;
   const navigate = useNavigate();
 
   const onChange = e =>
@@ -18,23 +18,24 @@ const Register = ({ setAuth }) => {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
-      const body = { email, password, name };
+      const body = { email, password };
       const response = await fetch(
-        "http://localhost:5000/auth/register",
+        "http://localhost:5000/auth/adminlogin",
         {
-          method: "POST", 
+          method: "POST",
           headers: {
             "Content-Type": "application/json"
           },
           body: JSON.stringify(body)
         }
       );
+
       const parseRes = await response.json();
 
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
-        // toast.success("Register Successfully");
+        // toast.success("Logged in Successfully");
       } else {
         setAuth(false);
         // toast.error(parseRes);
@@ -46,37 +47,52 @@ const Register = ({ setAuth }) => {
 
   return (
     <Fragment>
-      <h1 className="mt-5 text-center">Register</h1>
+     <ul> <h1 className="mt-5 text-center">Admin Login</h1>
+     </ul>
+      <ul>
       <form onSubmit={onSubmitForm}>
+        <ul>
+        <input
+        type="text"
+        name="name"
+        value={"admin"}
+        />
+        </ul>
+        <ul>
         <input
           type="text"
           name="email"
-          value={email}
           placeholder="Email"
+          value={email}
           onChange={onChange}
           className="form-control my-3"
         />
+        </ul>
+        <ul>
         <input
           type="password"
           name="password"
-          value={password}
           placeholder="Password"
+          value={password}
           onChange={onChange}
           className="form-control my-3"
         />
-        <input
-          type="text"
-          name="name"
-          value={name}
-          placeholder="Name"
-          onChange={onChange}
-          className="form-control my-3"
-        />
+        </ul>
+        <ul>
         <button className="btn btn-success btn-block">Submit</button>
+        </ul>
       </form>
-      <Link to="/login">Login</Link>
+      </ul>
+      <ul>
+        Login as <Link to="/login">User</Link>
+      </ul>
+
+      {/* <ul> Dont have an account yet? <Link to="/register">Register</Link></ul>
+      <ul>
+        Login as <Link to="/admin">Admin</Link>
+      </ul> */}
     </Fragment>
   );
 };
 
-export default Register;
+export default AdminLogin;

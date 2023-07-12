@@ -16,7 +16,7 @@ app.use("/auth", require("./routes/routes"))
 
 app.use("/dashboard", require("./routes/dash"))
 
-app.use("/admin", require("./routes/admindash"))
+// app.use("/admin", require("./routes/admindash"))
 
 app.listen(5000, () => {
     console.log("Server is running on port 5000")

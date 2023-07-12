@@ -51,6 +51,7 @@ const Login = ({ setAuth }) => {
         <input
           type="text"
           name="email"
+          placeholder="Email"
           value={email}
           onChange={onChange}
           className="form-control my-3"
@@ -58,13 +59,17 @@ const Login = ({ setAuth }) => {
         <input
           type="password"
           name="password"
+          placeholder="Password"
           value={password}
           onChange={onChange}
           className="form-control my-3"
         />
         <button className="btn btn-success btn-block">Submit</button>
       </form>
-      <Link to="/register">Register</Link>
+      <ul> Dont have an account yet? <Link to="/register">Register</Link></ul>
+      <ul>
+        Login as <Link to="/adminlogin">Admin</Link>
+      </ul>
     </Fragment>
   );
 };
