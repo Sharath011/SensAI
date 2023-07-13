@@ -1,21 +1,9 @@
 import React, { useEffect, useState, Fragment } from "react";
-import {Link} from 'react-router-dom';
 
 const Dashboard = ({ setAuth }) => {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("Phone Number");
   const [addr, setAddr] = useState("Address");
-
-  // const [inputs, setInputs] = useState({
-  //   name: "",
-  //   addr: "address",
-  //   phone: "phone"
-  // });
-
-  // const { name, phone, addr } = inputs;
-
-  // const onChange = e =>
-  // setInputs({ ...inputs, [e.target.name]: e.target.value });
 
   const getProfile = async () => {
     try {
@@ -25,7 +13,6 @@ const Dashboard = ({ setAuth }) => {
       });
 
       const parseData = await res.json();
-      // setInputs([parseData.user_name, parseData.phone_no, parseData.addr])
       setName(parseData.user_name);
       setPhone(parseData.phone_no);
       setAddr(parseData.addr);
@@ -54,14 +41,6 @@ const Dashboard = ({ setAuth }) => {
 
       console.log(parseRes)
 
-      // if (parseRes.token) {
-      //   localStorage.setItem("token", parseRes.token);
-      //   setAuth(true);
-      //   // toast.success("Logged in Successfully");
-      // } else {
-      //   setAuth(false);
-      //   // toast.error(parseRes);
-      // }
     } catch (err) {
       console.error(err.message);
     }

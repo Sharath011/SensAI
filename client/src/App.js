@@ -35,12 +35,6 @@ function App() {
     setIsAuthenticated(boolean);
   };
 
-  //admin
-  // const [isAdmin, setIsAdmin] = useState(false);
-
-  // const setAdmin = boolean =>{
-  //   setIsAdmin(boolean);
-  // }
 
   return (
     <Fragment>

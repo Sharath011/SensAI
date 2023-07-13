@@ -121,14 +121,16 @@ router.get("/admindash", authorisation, async(req, res) =>{
     }
 })
 
-router.post("/admindash", authorisation, async(req, res) => {
+router.delete("/admindash/:user_id", async(req, res, next) => {
     try {
         
-        const { name } = req.body;
+        const id  = req.params.user_id;
 
-        const data = await pool.query(" Delete from users where user_name = $1 ", [name]);
+        const data = await pool.query(" Delete from users where user_id = $1 ", [id]);
 
-        res.json(data)
+        res.json({message: "User deleted successfully"})
+
+        next();
 
     } catch (err) {
         console.error(err.message);

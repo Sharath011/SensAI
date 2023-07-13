@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const Register = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -10,7 +9,6 @@ const Register = ({ setAuth }) => {
   });
 
   const { email, password, name } = inputs;
-  const navigate = useNavigate();
 
   const onChange = e =>
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -34,10 +32,8 @@ const Register = ({ setAuth }) => {
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
-        // toast.success("Register Successfully");
       } else {
         setAuth(false);
-        // toast.error(parseRes);
       }
     } catch (err) {
       console.error(err.message);

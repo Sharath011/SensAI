@@ -1,6 +1,5 @@
 import React, { Fragment, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const AdminLogin = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -10,7 +9,6 @@ const AdminLogin = ({ setAuth }) => {
   });
 
   const { email, password } = inputs;
-  const navigate = useNavigate();
 
   const onChange = e =>
     setInputs({ ...inputs, [e.target.name]: e.target.value });
@@ -35,10 +33,8 @@ const AdminLogin = ({ setAuth }) => {
       if (parseRes.token) {
         localStorage.setItem("token", parseRes.token);
         setAuth(true);
-        // toast.success("Logged in Successfully");
       } else {
         setAuth(false);
-        // toast.error(parseRes);
       }
     } catch (err) {
       console.error(err.message);
@@ -87,10 +83,6 @@ const AdminLogin = ({ setAuth }) => {
         Login as <Link to="/login">User</Link>
       </ul>
 
-      {/* <ul> Dont have an account yet? <Link to="/register">Register</Link></ul>
-      <ul>
-        Login as <Link to="/admin">Admin</Link>
-      </ul> */}
     </Fragment>
   );
 };
