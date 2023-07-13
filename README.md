@@ -2,7 +2,8 @@
 # Authentication Flow with Admin and User Roles
 This project implements an authentication flow with separate roles for admins and users. It includes features such as admin login, user login, user registration, admin dashboard, and user dashboard. The project utilizes a JWT-based approach for authentication and supports preserving login state on reload.
 
-Requirements
+## Components
+
 ### Admin Login:
 
 - Implemented an admin login page where admins can enter their credentials to access the admin dashboard.
@@ -41,11 +42,13 @@ Tech Stack
 JavaScript-based framework and library: ReactJS and Express.
 Database: PostgreSQL.
 
-Setup and Installation
-Clone the repository:
+## Setup and Installation
 
-### git clone <repository-url>
-Install dependencies:
+### Clone the repository:
+
+`git clone <repository-url>
+`
+## Install dependencies:
 
 ### Install server dependencies
 `cd server
