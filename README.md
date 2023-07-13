@@ -60,7 +60,7 @@ npm install`
 
 ### Configure the database:
 
-Set up a PostgreSQL database, the schema is present in the [db.sql](https://github.com/Sharath011/SensAI/blob/main/server/db.sql) and update the configuration in the server [db.js](https://github.com/Sharath011/SensAI/blob/main/server/db.js) file.
+Set up a PostgreSQL database, the schema is present in the and update the configuration in the server  file.
 
 ## Run the application:
 
