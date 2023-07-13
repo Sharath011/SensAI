@@ -42,9 +42,9 @@ Tech Stack
 JavaScript-based framework and library: ReactJS and Express.
 Database: PostgreSQL.
 
-## Setup and Installation
+# Setup and Installation
 
-### Clone the repository:
+## Clone the repository:
 
 `git clone <repository-url>
 `
