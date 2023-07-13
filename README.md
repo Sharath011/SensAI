@@ -39,8 +39,8 @@ Validate the uniqueness of the invite link and ensure it can only be used once f
 
 Deploy the server and client using any free service. -->
 ## Tech Stack
-JavaScript-based framework and library: ReactJS and Express.
-Database: PostgreSQL.
+- JavaScript-based framework and library: ReactJS and Express.
+- Database: PostgreSQL.
 
 # Setup and Installation
 
