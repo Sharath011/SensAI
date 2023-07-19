@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
 import AdminDash from "./components/AdminDash";
 import AdminLogin from "./components/AdminLogin";
+import Home from "./components/Home";
 
 function App() {
   const checkAuthenticated = async () => {
@@ -41,6 +42,10 @@ function App() {
       <Router>
         <div className="container">
           <Routes>
+            <Route 
+            path = ""
+            element= {<Home/>}
+            />
             <Route
               path="/login"
               element={!isAuthenticated ? <Login setAuth={setAuth} /> : <Navigate to="/dashboard" />}
